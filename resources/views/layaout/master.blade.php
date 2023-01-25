@@ -15,7 +15,7 @@
     <link href="assets/css/nucleo-icons.css" rel="stylesheet" />
     <link href="assets/css/nucleo-svg.css" rel="stylesheet" />
     <!-- Font Awesome Icons -->
-    <script src="https://kit.fontawesome.com/42d5adcbca.js" crossorigin="anonymous"></script>
+    <link href="/assets/vendor/@fortawesome/fontawesome-free/css/all.min.css" rel="stylesheet">
     <!-- Material Icons -->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round" rel="stylesheet">
     <!-- CSS Files -->
@@ -106,6 +106,7 @@
         <!-- End Navbar -->
         <div class="container-fluid py-4">
             <!--Aca metes el contenido-->
+            @yield('contenido')
         </div>
     </main>
     <div class="fixed-plugin">
