@@ -29,7 +29,6 @@
         <tr v-for="producto in productos">
           <td>
             <div class="d-flex px-2">
-              
               <div class="my-auto">
                 <h6 class="mb-0 text-xs">@{{producto.id}}</h6>
               </div>
@@ -75,7 +74,6 @@
               </span>
            </button>
           </td>
-          
         </tr>
       </tbody>
     </table>
