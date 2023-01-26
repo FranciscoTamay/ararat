@@ -3,7 +3,7 @@
 <div id="productos">
 <div class="card">
   <h4 class="align-middle text-center">PRODUCTOS 
-    <button class="btn btn-info" @click="showModal()">
+    <button class="btn btn-info btn-sm" @click="showModal()">
       <span class="material-icons">
         add
       </span>
