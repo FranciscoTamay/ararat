@@ -63,12 +63,12 @@
 
 
           <td class="align-middle">
-           <button class="btn btn-success btn-sm">
+           <button class="btn btn-success btn-sm" @click="editProducto(producto.id)">
            <span class="material-icons">
               edit
               </span>
            </button>
-           <button class="btn btn-danger btn-sm">
+           <button class="btn btn-danger btn-sm" @click="deleteProducto(producto.id)">
            <span class="material-icons">
               delete
               </span>
@@ -87,7 +87,8 @@
   <div class="modal-dialog modal-dialog-centered" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title font-weight-normal" id="exampleModalLabel">Asistente de Productos</h5>
+        <h5 class="modal-title font-weight-normal" id="exampleModalLabel" v-if="editando==false">Registro de Productos</h5>
+        <h5 class="modal-title font-weight-normal" id="exampleModalLabel" v-if="editando==true">Editando Productos</h5>
         <button type="button" class="btn-close text-dark" data-bs-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
@@ -98,21 +99,21 @@
           <div class="form-row">
             <div class="col">
                 <label>NOMBRE DEL PRODUCTO</label>
-                <input type="text" class="form-control" placeholder="Ingrese el nombre del producto" ><br>
+                <input type="text" class="form-control" placeholder="Ingrese el nombre del producto" v-model="nombre"><br>
         </form>
 
         <form>
           <div class="form-row">
             <div class="col">
                 <label>PRECIO DEL PRODUCTO</label>
-                <input type="number" class="form-control" placeholder="Ingrese el precio del producto" ><br>
+                <input type="number" class="form-control" placeholder="Ingrese el precio del producto" v-model="precio"><br>
         </form>
 
         <form>
           <div class="form-row">
             <div class="col">
                 <label>CANTIDAD DEL PRODUCTO</label>
-                <input type="number" class="form-control" placeholder="Ingrese la cantidad del producto" ><br>
+                <input type="number" class="form-control" placeholder="Ingrese la cantidad del producto" v-model="cantidad"><br>
         </form>
 
         <form>
@@ -126,7 +127,8 @@
       </div>
       <div class="modal-footer">
         <button type="button" class="btn bg-gradient-secondary" data-bs-dismiss="modal">Close</button>
-        <button type="button" class="btn bg-gradient-primary">Save changes</button>
+        <button type="button" class="btn bg-gradient-primary" @click="addProducto()" v-if="editando==false">Save changes</button>
+        <button type="button" class="btn bg-gradient-primary" @click="updateProducto()" v-if="editando==true">Save changes</button>
       </div>
     </div>
   </div>
