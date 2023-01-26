@@ -1,6 +1,6 @@
 function init(){
     //RUTA DE LA API QUE SE USARA 
-    var apiProducto='http://127.0.0.1:8000/apiProductos'
+    var apiCategoria='http://127.0.0.1:8000/apiCategoria'
     // pueden usar las rutas relativas para que no hsya problema pero si estan usando
     // php artisan serv usen la misma total es como lo tengo enrutado pero como vean
     //INICIO DE VUE
@@ -16,10 +16,8 @@ function init(){
         data:{
             mensaje:'HOLA SOY FRANCISCO',
             categorias:[],
-            id:'',
+            id_categoria:'',
             nombre:'',
-            precio:null,
-            cantidad:null,
             editando:false,
             producto:'',
             find:'',
@@ -27,13 +25,13 @@ function init(){
         },
     
         created() {
-            this.getProductos();
+            this.getCategorias();
         },
     
         methods: {
-            getProductos:function(){
-                this.$http.get(apiProducto).then(function(json){
-                    this.productos=json.data;
+            getCategorias:function(){
+                this.$http.get(apiCategoria).then(function(json){
+                    this.categorias=json.data;
                 }).catch(function(json){
                     console.log.json
                 });
@@ -41,10 +39,8 @@ function init(){
 
             showModal:function(){
                 this.editando=false,
-                this.id='',
+                this.id_categoria='',
                 this.nombre='',
-                this.precio='',
-                this.cantidad='',
                 $('#modalProducto').modal('show');
                 // cuando se egrague el select de los productos para seleccionar la categoria 
                 // y el tipo del producto pongan la propiedad para que lo traiga vacio
@@ -52,10 +48,10 @@ function init(){
 
             addProducto:function(){
                 //este es el json que se enviara al controllador
-                var producto={id:this.id,nombre:this.nombre,precio:this.precio,cantidad:this.cantidad};
-                this.$http.post(apiProducto,producto).then(function(json){
+                var categoria={id_categoria:this.id_categoria,nombre:this.nombre};
+                this.$http.post(apiCategoria,categoria).then(function(json){
                     console.log('Inserccion Exitosa');
-                    this.getProductos();
+                    this.getCategorias();
                 }).catch(function(json){
                     console.log(json);
                 });
@@ -64,35 +60,30 @@ function init(){
 
             editProducto:function(id){
                 this.editando=true;
-                this.id=id;
-                this.$http.get(apiProducto + '/' + id).then(function(json){
-                    this.id=json.data.id;
+                this.id_categoria=id;
+                this.$http.get(apiCategoria + '/' + id).then(function(json){
+                    this.id_categoria=json.data.id_categoria;
                     this.nombre=json.data.nombre;
-                    this.precio=json.data.precio;
-                    this.cantidad=json.data.cantidad;
-                   
                 });
                 $('#modalProducto').modal('show');
             },
 
             updateProducto:function(){
-                var jsonProd={
-                    id:this.id,
+                var jsonCate={
+                    id_categoria:this.id_categoria,
                     nombre:this.nombre,
-                    precio:this.precio,
-                    cantidad:this.cantidad,
                 };
-                this.$http.patch(apiProducto + '/' + this.id,jsonProd).then(function(json){
-                    this.getProductos();
+                this.$http.patch(apiCategoria + '/' + this.id_categoria,jsonCate).then(function(json){
+                    this.getCategorias();
                 });
                 $('#modalProducto').modal('hide');
             },
 
             deleteProducto:function(id){
-                var confirmacion=confirm('Esta seguro de quere eliminar el producto?');
+                var confirmacion=confirm('Esta seguro de quere eliminar la categoria?');
                 if(confirmacion){
-                    this.$http.delete(apiProducto + '/' + id).then(function(json){
-                        this.getProductos();
+                    this.$http.delete(apiCategoria + '/' + id).then(function(json){
+                        this.getCategorias();
                     }).catch(function(json){
                         console.log('Se elimino con exito');
                     });
