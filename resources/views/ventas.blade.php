@@ -10,7 +10,7 @@
         <form >
             <div class="row">
                 <div class="w-2"></div>
-                <div class="col-md-6 col">
+                <div class="col-md-4 ">
                 <div class="input-group input-group-outline my-3">
                     <label class="form-label">Ingrese el código del producto</label>
                     <input type="number" class="form-control">
