@@ -31,9 +31,9 @@ class ProductoController extends Controller
     {
         //
         $producto=new Producto();
-        $producto->sku=$request->get('id');
+        $producto->id=$request->get('id');
         $producto->nombre=$request->get('nombre');
-        $producto->precio_publico=$request->get('precio');
+        $producto->precio=$request->get('precio');
         $producto->cantidad=$request->get('cantidad');
 
         $producto->save();
@@ -64,10 +64,9 @@ class ProductoController extends Controller
     {
         //
         $producto=Producto::find($id);
-        $producto=new Producto();
-        $producto->sku=$request->get('id');
+        $producto->id=$request->get('id');
         $producto->nombre=$request->get('nombre');
-        $producto->precio_publico=$request->get('precio');
+        $producto->precio=$request->get('precio');
         $producto->cantidad=$request->get('cantidad');
 
         $producto->update();

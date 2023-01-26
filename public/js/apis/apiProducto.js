@@ -40,7 +40,52 @@ function init(){
             },
 
             showModal:function(){
+                this.editando=false,
+                this.id='',
+                this.nombre='',
+                this.precio='',
+                this.cantidad='',
                 $('#modalProducto').modal('show');
+                // cuando se egrague el select de los productos para seleccionar la categoria 
+                // y el tipo del producto pongan la propiedad para que lo traiga vacio
+            },
+
+            addProducto:function(){
+                //este es el json que se enviara al controllador
+                var producto={id:this.id,nombre:this.nombre,precio:this.precio,cantidad:this.cantidad};
+                this.$http.post(apiProducto,producto).then(function(json){
+                    console.log('Inserccion Exitosa');
+                    this.getProductos();
+                }).catch(function(json){
+                    console.log(json);
+                });
+                $('#modalProducto').modal('hide');
+            },
+
+            editProducto:function(id){
+                this.editando=true;
+                this.id=id;
+                this.$http.get(apiProducto + '/' + id).then(function(json){
+                    this.id=json.data.id;
+                    this.nombre=json.data.nombre;
+                    this.precio=json.data.precio;
+                    this.cantidad=json.data.cantidad;
+                   
+                });
+                $('#modalProducto').modal('show');
+            },
+
+            updateProducto:function(){
+                var jsonProd={
+                    id:this.id,
+                    nombre:this.nombre,
+                    precio:this.precio,
+                    cantidad:this.cantidad,
+                };
+                this.$http.patch(apiProducto + '/' + this.id,jsonProd).then(function(json){
+                    this.getProductos();
+                });
+                $('#modalProducto').modal('hide');
             },
     
             
