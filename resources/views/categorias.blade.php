@@ -25,7 +25,6 @@
         <tr v-for="categoria in categorias">
           <td>
             <div class="d-flex px-2">
-              
               <div class="my-auto">
                 <h6 class="mb-0 text-xs">@{{categoria.id_categoria}}</h6>
               </div>
@@ -48,7 +47,6 @@
               </span>
            </button>
           </td>
-          
         </tr>
       </tbody>
     </table>

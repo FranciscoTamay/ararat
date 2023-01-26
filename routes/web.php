@@ -20,7 +20,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-//Aqui se encuentra enrutado el master de la plantilla 
+//Aqui se encuentra enrutado el master de la plantilla
 Route::view('master', 'layaout.master');
 Route::view('plantilla', 'layaout.plantilla');
 //Aqui es en donde se enrutaran todas las vistas
