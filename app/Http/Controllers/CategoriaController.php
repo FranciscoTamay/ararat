@@ -27,6 +27,11 @@ class CategoriaController extends Controller
     public function store(Request $request)
     {
         //
+        $categoria=new Categoria();
+        $categoria->id_categoria=$request->get('id_categoria');
+        $categoria->nombre=$request->get('nombre');
+
+        $categoria->save();
     }
 
     /**
@@ -38,6 +43,7 @@ class CategoriaController extends Controller
     public function show($id)
     {
         //
+        return Categoria::find($id);
     }
 
     /**
@@ -50,6 +56,12 @@ class CategoriaController extends Controller
     public function update(Request $request, $id)
     {
         //
+        $categoria=Categoria::find($id);
+        $categoria->id_categoria=$request->get('id_categoria');
+        $categoria->nombre=$request->get('nombre');
+        
+
+        $categoria->update();
     }
 
     /**
@@ -61,5 +73,7 @@ class CategoriaController extends Controller
     public function destroy($id)
     {
         //
+        $categoria=Categoria::find($id);
+        $categoria->delete();
     }
 }

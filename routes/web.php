@@ -29,5 +29,5 @@ Route::view('ventas', 'ventas');
 
 //Aqui se enrutan los controladores
 Route::apiResource('apiProductos', ProductoController::class);
-Route::apiResource('apiProductos', CategoriaController::class);
+Route::apiResource('apiCategoria', CategoriaController::class);
 Route::apiResource('apiTipo',TipoProductoController::class);
