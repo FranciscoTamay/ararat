@@ -25,6 +25,7 @@ Route::view('master', 'layaout.master');
 Route::view('plantilla', 'layaout.plantilla');
 //Aqui es en donde se enrutaran todas las vistas
 Route::view('productos', 'productos');
+Route::view('producto', 'tipoDeProductos');
 
 
 //Aqui se enrutan los controladores

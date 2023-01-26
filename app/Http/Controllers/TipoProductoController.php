@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\TipoProducto;
 use Illuminate\Http\Request;
+
 
 class TipoProductoController extends Controller
 {
@@ -14,6 +16,7 @@ class TipoProductoController extends Controller
     public function index()
     {
         //
+        return TipoProducto::all();
     }
 
     /**
@@ -25,6 +28,12 @@ class TipoProductoController extends Controller
     public function store(Request $request)
     {
         //
+         $TipoProducto=new TipoProducto();
+         $TipoProducto->id_tipoProducto=$request->get('id_tipoProducto');
+         $TipoProducto->nombre=$request->get('nombre');
+
+         $TipoProducto->save();
+    
     }
 
     /**
@@ -36,6 +45,7 @@ class TipoProductoController extends Controller
     public function show($id)
     {
         //
+        return TipoProducto::find($id);
     }
 
     /**
@@ -48,6 +58,12 @@ class TipoProductoController extends Controller
     public function update(Request $request, $id)
     {
         //
+        $TipoProducto= TipoProducto::find($id);
+        $TipoProducto->id_tipoProducto=$request->get('id_tipoProducto');
+        $TipoProducto->nombre=$request->get('nombre');
+
+        $TipoProducto->save();
+
     }
 
     /**
@@ -59,5 +75,9 @@ class TipoProductoController extends Controller
     public function destroy($id)
     {
         //
+        $TipoProducto= TipoProducto::find($id);
+        $TipoProducto->delete();
+        
+        
     }
 }
