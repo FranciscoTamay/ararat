@@ -10,7 +10,7 @@ class TipoProducto extends Model
     use HasFactory;
     protected $table='tipo_producto';
 
-    protected $primaryKey='id_tipo_producto';
+    protected $primaryKey='id_tipoProducto';
 
     public $incrementing=true;
 
