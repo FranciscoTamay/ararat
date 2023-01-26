@@ -3,9 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Producto;
 
-class ProductoController extends Controller
+class VentaController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,10 +14,6 @@ class ProductoController extends Controller
     public function index()
     {
         //
-
-        return Producto::all();
-
-
     }
 
     /**
@@ -30,13 +25,6 @@ class ProductoController extends Controller
     public function store(Request $request)
     {
         //
-        $producto=new Producto();
-        $producto->sku=$request->get('id');
-        $producto->nombre=$request->get('nombre');
-        $producto->precio_publico=$request->get('precio');
-        $producto->cantidad=$request->get('cantidad');
-
-        $producto->save();
     }
 
     /**
@@ -48,9 +36,6 @@ class ProductoController extends Controller
     public function show($id)
     {
         //
-        return Producto::find($id);
-        
-
     }
 
     /**
@@ -63,14 +48,6 @@ class ProductoController extends Controller
     public function update(Request $request, $id)
     {
         //
-        $producto=Producto::find($id);
-        $producto=new Producto();
-        $producto->sku=$request->get('id');
-        $producto->nombre=$request->get('nombre');
-        $producto->precio_publico=$request->get('precio');
-        $producto->cantidad=$request->get('cantidad');
-
-        $producto->update();
     }
 
     /**
@@ -82,7 +59,5 @@ class ProductoController extends Controller
     public function destroy($id)
     {
         //
-        $producto=Producto::find($id);
-        $producto->delete();
     }
 }

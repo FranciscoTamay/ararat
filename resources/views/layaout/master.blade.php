@@ -9,6 +9,15 @@
     <title>
         UTC
     </title>
+    <!-- Token de VUE -->
+    <!-- TOKEN -->
+    <meta name="token" id="token" value="{{ csrf_token() }}">
+    <!-- VUE JS -->
+    <script type="text/javascript" src="{{asset('js/vue.js')}}"></script>
+    <!-- VUE RESOURCE -->
+    <script type="text/javascript" src="{{asset('js/vue-resource.js')}}"></script>
+    <!-- jQuery -->
+    <script src="{{asset('js/jquery.min.js')}}"></script>
     <!--     Fonts and icons     -->
     <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,900|Roboto+Slab:400,700" />
     <!-- Nucleo Icons -->
@@ -176,6 +185,7 @@
     <script async defer src="https://buttons.github.io/buttons.js"></script>
     <!-- Control Center for Material Dashboard: parallax effects, scripts for the example pages etc -->
     <script src="../assets/js/material-dashboard.min.js?v=3.0.4"></script>
+    @stack('js')
 </body>
 
 </html>

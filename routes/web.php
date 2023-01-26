@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ProductoController;
 
 /*
 |--------------------------------------------------------------------------
@@ -22,4 +23,9 @@ Route::view('master','layaout.master');
 Route::view('plantilla','layaout.plantilla');
 //Aqui es en donde se enrutaran todas las vistas 
 Route::view('productos','productos');
+
+
+//Aqui se enrutan los controladores 
+Route::apiResource('apiProductos',ProductoController::class);
+
 
