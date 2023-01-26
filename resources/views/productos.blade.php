@@ -68,7 +68,7 @@
               edit
               </span>
            </button>
-           <button class="btn btn-danger btn-sm" >
+           <button class="btn btn-danger btn-sm" @click="deleteProducto(producto.id)">
            <span class="material-icons">
               delete
               </span>

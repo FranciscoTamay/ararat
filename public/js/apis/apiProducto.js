@@ -87,6 +87,18 @@ function init(){
                 });
                 $('#modalProducto').modal('hide');
             },
+
+            deleteProducto:function(id){
+                var confirmacion=confirm('Esta seguro de quere eliminar el producto?');
+                if(confirmacion){
+                    this.$http.delete(apiProducto + '/' + id).then(function(json){
+                        this.getProductos();
+                    }).catch(function(json){
+                        console.log('Se elimino con exito');
+                    });
+                }
+                
+            },
     
             
             
