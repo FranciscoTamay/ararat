@@ -120,7 +120,15 @@
           <div class="form-row">
             <div class="col">
                 <label>CATEGORIA DEL PRODUCTO</label>
-                <select name="" id=""></select>
+                <select name="" id="" class="form-control"></select>
+                <!-- Primo si puedes usar aqui el para que seleccione la categoria seria god -->
+        </form>
+
+        <form>
+          <div class="form-row">
+            <div class="col">
+                <label>CATEGORIA DEL PRODUCTO</label>
+                <select name="" id="" class="form-control" ></select>
                 <!-- Primo si puedes usar aqui el para que seleccione la categoria seria god -->
         </form>
 

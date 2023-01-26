@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProductoController;
+use App\Http\Controllers\CategoriaController;
+use App\Http\Controllers\TipoProductoController;
 
 /*
 |--------------------------------------------------------------------------
@@ -27,3 +29,5 @@ Route::view('productos', 'productos');
 
 //Aqui se enrutan los controladores
 Route::apiResource('apiProductos', ProductoController::class);
+Route::apiResource('apiProductos', CategoriaController::class);
+Route::apiResource('apiTipo',TipoProductoController::class);
