@@ -16,7 +16,7 @@ function init(){
 
     data:{
         tipo_productos:[],
-        id_tipoProductos:'',
+        id_tipoProducto:'',
         nombre:'',
         editando:false,
 
@@ -36,11 +36,56 @@ function init(){
 
         showModal:function(){
             this.editando=false,
-            this.id_tipoProductos='',
+            this.id_tipoProducto='',
             this.nombre='',
             $('#modaltipoProducto').modal('show');
 
 
+        },
+
+        addProducto:function(){
+            //este es el json que se enviara al controllador
+            var tipo={id_tipoProducto:this.id_tipoProducto,nombre:this.nombre};
+            this.$http.post(Producto,tipo).then(function(json){
+                console.log('Inserccion Exitosa');
+                this.getTipoProductos();
+            }).catch(function(json){
+                console.log(json);
+            });
+            $('#modaltipoProducto').modal('hide');
+        },
+
+        editProducto:function(id){
+            this.editando=true;
+            this.id_tipoProducto=id;
+            this.$http.get(Producto + '/' + id).then(function(json){
+                this.id_tipoProducto=json.data.id_tipoProducto;
+                this.nombre=json.data.nombre;
+            });
+            $('#modaltipoProducto').modal('show');
+        },
+
+        updateProducto:function(){
+            var jsonTipo={
+                id_tipoProducto:this.id_tipoProducto,
+                nombre:this.nombre,
+            };
+            this.$http.patch(Producto + '/' + this.id_tipoProducto,jsonTipo).then(function(json){
+                this.getTipoProductos();
+            });
+            $('#modaltipoProducto').modal('hide');
+        },
+
+        deleteProducto:function(id){
+            var confirmacion=confirm('Esta seguro de quere eliminar la categoria?');
+            if(confirmacion){
+                this.$http.delete(Producto + '/' + id).then(function(json){
+                    this.getTipoProductos();
+                }).catch(function(json){
+                    console.log('Se elimino con exito');
+                });
+            }
+            
         },
         
      },

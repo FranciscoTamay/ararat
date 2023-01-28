@@ -3,7 +3,7 @@
 <!-- Aqui es donde se pondra todo el contenido de la pagina  -->
 <div id="tipo_productos">
 <div class="card">
-  <h4 class="align-middle text-center">AGREGAR TIPOS DE PRODUCTOS 
+  <h4 class="align-middle text-center">TIPO DE PRODUCTOS 
     <button class="btn btn-info btn-sm" @click="showModal()">
       <span class="material-icons">
         add
@@ -36,12 +36,12 @@
 
           
           <td class="align-middle">
-           <button class="btn btn-success btn-sm" @click="editProducto(producto.id)">
+           <button class="btn btn-success btn-sm" @click="editProducto(tipo.id_tipoProducto)">
            <span class="material-icons">
               edit
               </span>
            </button>
-           <button class="btn btn-danger btn-sm" @click="deleteProducto(producto.id)">
+           <button class="btn btn-danger btn-sm" @click="deleteProducto(tipo.id_tipoProducto)">
            <span class="material-icons">
               delete
               </span>
@@ -56,8 +56,8 @@
   <div class="modal-dialog modal-dialog-centered" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title font-weight-normal" id="exampleModalLabel" v-if="editando==false">Registro de Productos</h5>
-        <h5 class="modal-title font-weight-normal" id="exampleModalLabel" v-if="editando==true">Editando Productos</h5>
+        <h5 class="modal-title font-weight-normal" id="exampleModalLabel" v-if="editando==false">Registro de Tipo de Productos</h5>
+        <h5 class="modal-title font-weight-normal" id="exampleModalLabel" v-if="editando==true">Editando Tipo de Productos</h5>
         <button type="button" class="btn-close text-dark" data-bs-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>

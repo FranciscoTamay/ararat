@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProductoController;
 use App\Http\Controllers\CategoriaController;
 use App\Http\Controllers\TipoProductoController;
+use App\Http\Controllers\VentaController;
 
 /*
 |--------------------------------------------------------------------------
@@ -25,9 +26,13 @@ Route::view('master', 'layaout.master');
 Route::view('plantilla', 'layaout.plantilla');
 //Aqui es en donde se enrutaran todas las vistas
 Route::view('productos', 'productos');
-Route::view('ventas', 'ventas');
+Route::view('categorias','categorias');
+Route::view('tipoProducto','tipoDeProductos');
+Route::view('ventas','ventas');
 
 //Aqui se enrutan los controladores
 Route::apiResource('apiProductos', ProductoController::class);
 Route::apiResource('apiCategoria', CategoriaController::class);
 Route::apiResource('apiTipo',TipoProductoController::class);
+Route::apiResource('apiVenta',VentaController::class);
+
